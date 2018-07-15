@@ -12,9 +12,9 @@ export const store = new Vuex.Store({
 		proxy: 'https://cors-anywhere.herokuapp.com/',
 		text: [],
 		images: [],
-		filteredData: [],
 		loader: true,
 		resPerPage: 10,
+		filteredData: []
 	},
 	mutations: {
 		changeBgStatus(state, payload) {
@@ -26,12 +26,10 @@ export const store = new Vuex.Store({
 		setImageData(state, payload) {
 			state.images = payload;
 		},
-		filterData(state, payload) {
-			state.filteredData = state.text.filter(value => {
-				return value.title.toString().toLowerCase().match(payload)
-			});
+		searchData(state, payload) {
+			state.filteredData = state.text.filter(value => value.title.toLowerCase().match(payload));
 		}
-	},
+ 	},
 	actions: {
 		async fetchPoemData({commit}) {
 			try {               
@@ -63,8 +61,8 @@ export const store = new Vuex.Store({
 		fetchLoader(state) {
 			return state.loader;
 		},
-		returnFilteredData(state) {
+		returnSearchResults(state) {
 			return state.filteredData;
-		},
+		}
 	}
 });
