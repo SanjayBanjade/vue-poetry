@@ -11,3 +11,12 @@
         font-family: 'Roboto', 'Helvetica', sans-serif;
     }
 </style>
+
+<script>
+    export default {
+        mounted() {
+            this.$store.dispatch('fetchPoemData');
+            this.$store.dispatch('fetchPoemImages');
+        }
+    }
+</script>

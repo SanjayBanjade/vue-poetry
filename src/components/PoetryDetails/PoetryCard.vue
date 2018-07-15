@@ -142,8 +142,6 @@
 		},
 		created() {
 			this.$store.commit('changeBgStatus', true);
-			this.$store.dispatch('fetchPoemData');
-			this.$store.dispatch('fetchPoemImages');
 
 			let page = this.pagination;
 

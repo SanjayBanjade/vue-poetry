@@ -1,12 +1,12 @@
 <template>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	        <input 
-	        		class="form-control mr-sm-2" 
-	        		type="search" 
-	        		placeholder="Search" 
-	        		aria-label="Search"
-	        		v-model="searchTerm"
-	        		@input="routerSearch()">
+	        	  class="form-control mr-sm-2" 
+	        	  type="search" 
+	        	  placeholder="Search" 
+	        	  aria-label="Search"
+	        	  v-model="searchTerm"
+	        	  @input="routerSearch()">
 	</div>
 </template>
 
@@ -16,30 +16,19 @@
 	export default {
 		data() {
 			return {
-				searchTerm: '',
+				searchTerm: this.$route.query.query,
 			}
-		},
-		computed: {
-			...mapGetters([
-					'fetchData',
-					'fetchImages',
-				]),
 		},
 		methods: {
 			routerSearch() {
 				if(this.searchTerm) {
 					this.$router.push('/poem/search');
 					this.$router.push({query: {query: this.searchTerm}});
-					this.$store.commit('filterData', this.$route.query.query);
+					this.$store.commit('searchData', this.searchTerm.toLowerCase());
 				} else {
 					this.$router.push({name: 'poetry'});
 				}
 			}
 		},
-		created() {
-			this.$store.commit('changeBgStatus', true);
-			this.$store.dispatch('fetchPoemData');
-			this.$store.dispatch('fetchPoemImages');
-		}
 	}
 </script>

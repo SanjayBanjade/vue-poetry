@@ -1,16 +1,13 @@
 <template>
-    <div id="app">
-        <div class="poet-wrapper" :style="'background:url('+require('../assets/nature.jpg')+')'" :class="{'remBG': bgStat}">
-            <div class="dark-overlay" :class="{'remBG': bgStat}"></div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <router-link to="/"><a class="navbar-brand">Poet Box</a></router-link>
-                <poetry-search></poetry-search>
-            </nav>
-            <keep-alive>
-                <router-view></router-view>
-            </keep-alive>
-        </div>
-        <poetry-searchresults></poetry-searchresults>
+    <div class="poet-wrapper" :style="'background:url('+require('../assets/nature.jpg')+')'" :class="{'remBG': bgStat}">
+        <div class="dark-overlay" :class="{'remBG': bgStat}"></div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <router-link to="/"><a class="navbar-brand">Poet Box</a></router-link>
+            <poetry-search></poetry-search>
+        </nav>
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
     </div>
 </template>
 
@@ -44,13 +41,11 @@
 
 <script>
     import PoetrySearch from '@/components/PoetryDetails/Search.vue'
-    import PoetrySearchResults from '@/components/PoetryDetails/SearchResults.vue'
 
     export default {
         name: 'App',
         components: {
             poetrySearch: PoetrySearch,
-            poetrySearchresults: PoetrySearchResults
         },
         computed: {
             bgStat() {
