@@ -1,6 +1,6 @@
-# testvue
+# Poet Box
 
-> A Vue.js project
+> Poetry App which fetches Poems via an API Call!
 
 ## Build Setup
 
